@@ -9,6 +9,7 @@ pkgbase = cvc5-git
 	makedepends = gcc
 	makedepends = cmake
 	makedepends = python
+	makedepends = python-toml
 	makedepends = jdk-openjdk
 	depends = libedit
 	source = git+https://github.com/cvc5/cvc5.git#tag=cvc5-1.0.1
