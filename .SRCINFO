@@ -6,6 +6,7 @@ pkgbase = cvc5-git
 	arch = x86_64
 	license = BSD 3-Clause
 	makedepends = git
+	makedepends = libbsd
 	makedepends = gcc
 	makedepends = cmake
 	makedepends = python
