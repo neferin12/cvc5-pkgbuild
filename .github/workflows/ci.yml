@@ -23,7 +23,7 @@ jobs:
     container:
       image: archlinux
       env:
-        GITHUB_WORKSPACE: /home/build
+        GITHUB_WORKSPACE: /home/build/cvc5-pkgbuild
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
