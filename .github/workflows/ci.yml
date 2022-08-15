@@ -28,10 +28,9 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - run: "useradd build && echo \"build ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers"
-      - run: su build && cd
       
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       
       - name: Build
-        run: makepkg
+        run: su build && cd /home/build/cvc5-pkgbuild && makepkg
