@@ -31,7 +31,7 @@ build() {
 	cd "cvc5"
 	./configure.sh production --auto-download --editline
 	cd build
-	make -j $(grep ^cpu\\scores /proc/cpuinfo | uniq |  awk '{print $4}')
+	make -j $(grep -c ^processor /proc/cpuinfo)
 }
 
 package() {
