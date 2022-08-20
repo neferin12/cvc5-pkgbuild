@@ -1,13 +1,15 @@
 pkgbase = cvc5-git
 	pkgdesc = cvc5 is a tool for determining the satisfiability of a first order formula modulo a first order theory (or a combination of such theories).
 	pkgver = 1.0.1
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/cvc5/cvc5
 	arch = x86_64
 	license = BSD 3-Clause
+	license = GPL
 	makedepends = git
 	makedepends = libbsd
 	makedepends = gcc
+	makedepends = automake
 	makedepends = cmake
 	makedepends = python
 	makedepends = python-toml

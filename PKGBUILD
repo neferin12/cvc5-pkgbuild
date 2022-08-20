@@ -6,13 +6,13 @@
 # Maintainer: Julian Pollinger <julian@pollinger.dev>
 pkgname=cvc5-git
 pkgver=1.0.1
-pkgrel=1
+pkgrel=2
 pkgdesc="cvc5 is a tool for determining the satisfiability of a first order formula modulo a first order theory (or a combination of such theories). "
 arch=(x86_64)
 url="https://github.com/cvc5/cvc5"
-license=('BSD 3-Clause')
+license=('GPLv3')
 depends=(libedit libbsd)
-makedepends=(git libbsd gcc cmake python python-toml jdk-openjdk)
+makedepends=(git libbsd gcc automake cmake python python-toml jdk-openjdk)
 checkdepends=()
 optdepends=()
 provides=()
@@ -29,12 +29,17 @@ md5sums=('SKIP')
 
 build() {
 	cd "cvc5"
-	./configure.sh production --auto-download --editline
+	./configure.sh production --auto-download --editline --gpl --cln --prefix="$pkgdir/usr/bin"
 	cd build
-	make -j $(grep -c ^processor /proc/cpuinfo)
+	make -j$(nproc)
 }
 
 package() {
 	cd cvc5/build
-	sudo make install
+	make install
+}
+
+check() {
+	cd cvc5/build
+	make check
 }
