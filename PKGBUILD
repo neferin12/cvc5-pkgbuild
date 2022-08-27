@@ -5,8 +5,8 @@
 
 # Maintainer: Julian Pollinger <julian@pollinger.dev>
 pkgname=cvc5-git
-pkgver=1.0.1
-pkgrel=4
+pkgver=1.0.2
+pkgrel=1
 pkgdesc="cvc5 is a tool for determining the satisfiability of a first order formula modulo a first order theory (or a combination of such theories). "
 arch=(x86_64)
 url="https://github.com/cvc5/cvc5"
@@ -22,7 +22,7 @@ backup=()
 options=()
 install=
 changelog=
-source=("git+$url.git#tag=cvc5-1.0.1")
+source=("git+$url.git#tag=cvc5-1.0.2")
 noextract=()
 md5sums=('SKIP')
 
