@@ -15,10 +15,12 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  pkgbuild:
+  pkgbuild-git:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./pkg-git
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -28,16 +30,58 @@ jobs:
           path: 'cvc5-git'
       
       
-      - name: SRCINFO
+      - name: Verify SRCINFO
         uses: 2m/arch-pkgbuild-builder@v1.16
         with:
           target: 'srcinfo'
           pkgname: 'cvc5-git'
       
       
-      - name: Build
+      # - name: Build
+      #   uses: 2m/arch-pkgbuild-builder@v1.16
+      #   with:
+      #     target: 'pkgbuild'
+      #     pkgname: 'cvc5-git'
+      
+      - name: Build & Run
         uses: 2m/arch-pkgbuild-builder@v1.16
         with:
-          target: 'pkgbuild'
+          target: 'run'
           pkgname: 'cvc5-git'
+          command: `cvc5 ../test.smt`
+
+ pkgbuild-bin:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./pkg-bin
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+        with:
+          path: 'cvc5-bin'
+      
+      
+      - name: Verify SRCINFO
+        uses: 2m/arch-pkgbuild-builder@v1.16
+        with:
+          target: 'srcinfo'
+          pkgname: 'cvc5-bin'
+      
+      
+      # - name: Build
+      #   uses: 2m/arch-pkgbuild-builder@v1.16
+      #   with:
+      #     target: 'pkgbuild'
+      #     pkgname: 'cvc5-git'
+      
+      - name: Build & Run
+        uses: 2m/arch-pkgbuild-builder@v1.16
+        with:
+          target: 'run'
+          pkgname: 'cvc5-bin'
+          command: `cvc5 ../test.smt`
 
