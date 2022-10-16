@@ -43,7 +43,7 @@ jobs:
         with:
           target: 'run'
           pkgname: 'pkg-git'
-          command: 'cvc5 ../test.smt'
+          command: 'cvc5 --lang smt2 ../test.smt'
 
   pkgbuild-bin:
     # The type of runner that the job will run on
@@ -73,5 +73,5 @@ jobs:
         with:
           target: 'run'
           pkgname: 'pkg-bin'
-          command: 'cvc5 ../test.smt'
+          command: 'cvc5 --lang smt2 ../test.smt'
 
