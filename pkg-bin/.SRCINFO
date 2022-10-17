@@ -1,5 +1,5 @@
 pkgbase = cvc5-bin
-	pkgdesc = cvc5 is a tool for determining the satisfiability of a first order formula modulo a first order theory (or a combination of such theories).
+	pkgdesc = An open-source automatic theorem prover for Satisfiability Modulo Theories (SMT) problems.
 	pkgver = 1.0.2
 	pkgrel = 3
 	url = https://github.com/cvc5/cvc5
